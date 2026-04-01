@@ -1,0 +1,356 @@
+{
+  "metadata": {
+    "title": "LSAT Writing Reference Library Registry",
+    "generated_on": "2026-03-31",
+    "official_timing": {
+      "prewrite_minutes": 15,
+      "writing_minutes": 35
+    },
+    "extended_training_default": {
+      "prewrite_minutes": 23,
+      "writing_minutes": 53
+    },
+    "hybrid_mode": "public app stays synthesized; local/mac app unlocks private reference library cards"
+  },
+  "resources": [
+    {
+      "id": "companion-guide",
+      "title": "Companion Guide",
+      "group": "Companion Outputs",
+      "source_type": "DOCX guide",
+      "role": "Full written manual aligned to the app sequence",
+      "best_use": "Read before a drill block or before rewriting a weak essay.",
+      "related_modules": [
+        "module-0",
+        "module-1",
+        "module-3",
+        "module-4",
+        "module-5",
+        "module-6",
+        "module-7",
+        "module-8",
+        "module-9"
+      ],
+      "weakness_categories": [
+        "mechanism depth",
+        "inference depth",
+        "thesis clarity",
+        "counter precision",
+        "comparative judgment"
+      ],
+      "summary": "A structured written guide with formulas, drill instructions, and common mistake -> fix tables.",
+      "href": "./output/LSAT_Argumentative_Writing_Companion_Guide.docx",
+      "public_safe": true,
+      "local_only": false
+    },
+    {
+      "id": "companion-deck",
+      "title": "Learning Module Companion Deck",
+      "group": "Companion Outputs",
+      "source_type": "PPTX deck",
+      "role": "Slide-based review and teaching companion",
+      "best_use": "Skim before practice or use as a recap after a drill block.",
+      "related_modules": [
+        "module-0",
+        "module-1",
+        "module-2",
+        "module-3",
+        "module-4",
+        "module-5",
+        "module-6",
+        "module-7",
+        "module-8",
+        "module-9"
+      ],
+      "weakness_categories": [
+        "scope control",
+        "mechanism depth",
+        "inference depth",
+        "counter precision",
+        "paragraph completeness"
+      ],
+      "summary": "A concise slide deck with one concept, one formula, one example, one drill prompt, and one strong-writer note per topic.",
+      "href": "./output/LSAT_Learning_Module_Companion_Deck.pptx",
+      "public_safe": true,
+      "local_only": false
+    },
+    {
+      "id": "curriculum-overview",
+      "title": "Curriculum Overview",
+      "group": "Companion Outputs",
+      "source_type": "Markdown overview",
+      "role": "Quick reference map of the whole system",
+      "best_use": "Use to orient yourself before a study session.",
+      "related_modules": [
+        "module-0",
+        "module-9"
+      ],
+      "weakness_categories": [
+        "scope control",
+        "paragraph completeness"
+      ],
+      "summary": "A compact map of the module order, sprint outputs, and timing rules.",
+      "href": "./output/lsat_argumentative_curriculum_overview.md",
+      "public_safe": true,
+      "local_only": false
+    },
+    {
+      "id": "curriculum-model",
+      "title": "Curriculum Model JSON",
+      "group": "Companion Outputs",
+      "source_type": "JSON model",
+      "role": "Structured curriculum registry",
+      "best_use": "Use for implementation review, QA, or future automation.",
+      "related_modules": [
+        "module-0",
+        "module-9"
+      ],
+      "weakness_categories": [
+        "sentence clarity"
+      ],
+      "summary": "The structured curriculum dataset that mirrors the deck, guide, and lesson order.",
+      "href": "./output/lsat_argumentative_curriculum_model.json",
+      "public_safe": true,
+      "local_only": false
+    },
+    {
+      "id": "module-docx",
+      "title": "Original Learning Module DOCX",
+      "group": "Learning Module Files",
+      "source_type": "DOCX source",
+      "role": "Private local source document",
+      "best_use": "Read when expanding lesson explanations or checking the original drill sequencing.",
+      "related_modules": [
+        "module-0",
+        "module-3",
+        "module-4",
+        "module-7"
+      ],
+      "weakness_categories": [
+        "mechanism depth",
+        "inference depth",
+        "paragraph completeness"
+      ],
+      "summary": "Original learning-module writeup used to shape drill sequence, chunking, and explanation flow.",
+      "companion_id": "companion-guide",
+      "public_safe": false,
+      "local_only": true
+    },
+    {
+      "id": "module-pptx",
+      "title": "Original Learning Module PPTX",
+      "group": "Learning Module Files",
+      "source_type": "PPTX source",
+      "role": "Private local slide source",
+      "best_use": "Use for slide framing, lesson summaries, and visual study recaps.",
+      "related_modules": [
+        "module-0",
+        "module-3",
+        "module-4",
+        "module-7"
+      ],
+      "weakness_categories": [
+        "mechanism depth",
+        "inference depth",
+        "paragraph completeness"
+      ],
+      "summary": "Original deck source used to strengthen slide-level explanation and quick review structure.",
+      "companion_id": "companion-deck",
+      "public_safe": false,
+      "local_only": true
+    },
+    {
+      "id": "argumentative-notes",
+      "title": "Argumentative Notes from Sources",
+      "group": "Argumentative Writing Notes",
+      "source_type": "DOCX notes",
+      "role": "Private notes synthesis",
+      "best_use": "Read before mechanism, thesis, or counter drills to gather phrasing and logic patterns.",
+      "related_modules": [
+        "module-3",
+        "module-4",
+        "module-5",
+        "module-6"
+      ],
+      "weakness_categories": [
+        "mechanism depth",
+        "inference depth",
+        "thesis clarity",
+        "counter precision"
+      ],
+      "summary": "Aggregated argumentative notes used to shape drills, sentence stems, and revision targets.",
+      "companion_id": "companion-guide",
+      "public_safe": false,
+      "local_only": true
+    },
+    {
+      "id": "study-guide-source",
+      "title": "LSAT Argumentative Writing Study Guide",
+      "group": "Study Guides",
+      "source_type": "DOCX guide",
+      "role": "Private workflow guide",
+      "best_use": "Read before official-mode or timed practice sessions.",
+      "related_modules": [
+        "module-0",
+        "module-1",
+        "module-8",
+        "module-9"
+      ],
+      "weakness_categories": [
+        "scope control",
+        "paragraph completeness",
+        "comparative judgment"
+      ],
+      "summary": "Original guide that informed timing, prewriting structure, scratch-paper use, and full-essay flow.",
+      "companion_id": "companion-guide",
+      "public_safe": false,
+      "local_only": true
+    },
+    {
+      "id": "practice-essay-source",
+      "title": "LSAT Practice Argumentative Essay",
+      "group": "Practice Essay / Examples",
+      "source_type": "DOCX example",
+      "role": "Private example essay source",
+      "best_use": "Use while reviewing paragraph architecture and revision decisions.",
+      "related_modules": [
+        "module-5",
+        "module-7",
+        "module-8"
+      ],
+      "weakness_categories": [
+        "thesis clarity",
+        "paragraph completeness",
+        "comparative judgment"
+      ],
+      "summary": "Practice essay source used to reinforce outline sequencing and paragraph-role clarity.",
+      "companion_id": "companion-guide",
+      "public_safe": false,
+      "local_only": true
+    },
+    {
+      "id": "writing-notes-source",
+      "title": "LSAT Argumentative Writing Notes",
+      "group": "Argumentative Writing Notes",
+      "source_type": "DOCX notes",
+      "role": "Private notes source",
+      "best_use": "Use for scope, thesis, and counterargument review before drilling.",
+      "related_modules": [
+        "module-1",
+        "module-5",
+        "module-6"
+      ],
+      "weakness_categories": [
+        "scope control",
+        "thesis clarity",
+        "counter precision",
+        "limitation quality"
+      ],
+      "summary": "Source notes that shaped the scope-box system, thesis formulas, and counter/limitation studio.",
+      "companion_id": "companion-guide",
+      "public_safe": false,
+      "local_only": true
+    },
+    {
+      "id": "document2-source",
+      "title": "Document2",
+      "group": "Study Guides",
+      "source_type": "DOCX notes",
+      "role": "Private diagnostic/refinement source",
+      "best_use": "Use when diagnosing repeated weakness patterns and planning the next drill block.",
+      "related_modules": [
+        "module-4",
+        "module-6",
+        "module-9"
+      ],
+      "weakness_categories": [
+        "inference depth",
+        "counter precision",
+        "sentence clarity"
+      ],
+      "summary": "Supplemental notes source used to reinforce revision patterns and coaching language.",
+      "companion_id": "curriculum-overview",
+      "public_safe": false,
+      "local_only": true
+    },
+    {
+      "id": "document6-source",
+      "title": "Document (6)",
+      "group": "Study Guides",
+      "source_type": "DOCX notes",
+      "role": "Private diagnostic/refinement source",
+      "best_use": "Use while reviewing fallback examples and revision logic.",
+      "related_modules": [
+        "module-2",
+        "module-4",
+        "module-9"
+      ],
+      "weakness_categories": [
+        "perspective integration",
+        "inference depth",
+        "sentence clarity"
+      ],
+      "summary": "Supplemental notes that help with perspective synthesis, evidence meaning, and controlled revisions.",
+      "companion_id": "curriculum-overview",
+      "public_safe": false,
+      "local_only": true
+    }
+  ],
+  "study_paths": [
+    {
+      "id": "path-mechanism",
+      "title": "Mechanism Path",
+      "summary": "Read the mechanism explanation first, then run a causal-chain drill before writing.",
+      "lesson_id": "module-3",
+      "resource_ids": [
+        "companion-guide",
+        "argumentative-notes",
+        "module-docx"
+      ]
+    },
+    {
+      "id": "path-inference",
+      "title": "Inference Path",
+      "summary": "Use the inference ladder to move from evidence to meaning to consequence.",
+      "lesson_id": "module-4",
+      "resource_ids": [
+        "companion-guide",
+        "writing-notes-source",
+        "document6-source"
+      ]
+    },
+    {
+      "id": "path-counter",
+      "title": "Counter + Limitation Path",
+      "summary": "Read how to steelman the objection, limit it, and return to comparison before timed rewriting.",
+      "lesson_id": "module-6",
+      "resource_ids": [
+        "companion-guide",
+        "writing-notes-source",
+        "document2-source"
+      ]
+    },
+    {
+      "id": "path-thesis",
+      "title": "Thesis + Scope Path",
+      "summary": "Use the scope box and thesis formulas together before drafting any intro.",
+      "lesson_id": "module-5",
+      "resource_ids": [
+        "companion-deck",
+        "study-guide-source",
+        "writing-notes-source"
+      ]
+    },
+    {
+      "id": "path-timed",
+      "title": "Timed Performance Path",
+      "summary": "Review the timing rules, run a rep, then diagnose the single biggest weakness category.",
+      "lesson_id": "module-9",
+      "resource_ids": [
+        "curriculum-overview",
+        "study-guide-source",
+        "document2-source"
+      ]
+    }
+  ]
+}

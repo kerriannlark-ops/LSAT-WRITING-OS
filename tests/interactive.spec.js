@@ -104,19 +104,38 @@ test.describe('Interactive practice smoke', () => {
     await page.locator('#sim-begin-section').click();
 
     await page.locator('#sim-stage-prewrite.active button[data-highlight-color="pink"]').click();
+    await expect(page.locator('#sim-stage-prewrite.active button[data-highlight-color="pink"]')).toHaveClass(/active/);
     await setPromptTextSelection(page, '#sim-question-pane', 'practical skills necessary to succeed');
     await expect(page.locator('#sim-question-pane mark.lawhub-highlight-pink')).toHaveCount(1);
+    await expect(page.locator('#sim-stage-prewrite.active button[data-highlight-color="pink"]')).toHaveClass(/active/);
+    await setPromptTextSelection(page, '#sim-question-pane', 'career focused society');
+    await expect(page.locator('#sim-question-pane mark.lawhub-highlight-pink')).toHaveCount(2);
 
     await page.locator('#sim-stage-prewrite.active button[data-highlight-clear="selection"]').click();
+    await expect(page.locator('#sim-stage-prewrite.active button[data-highlight-clear="selection"]')).toHaveClass(/active/);
     await setPromptTextSelection(page, '#sim-question-pane', 'practical skills necessary to succeed');
+    await expect(page.locator('#sim-question-pane mark.lawhub-highlight-pink')).toHaveCount(1);
+    await setPromptTextSelection(page, '#sim-question-pane', 'career focused society');
     await expect(page.locator('#sim-question-pane mark.lawhub-highlight-pink')).toHaveCount(0);
 
-    await enterEssayText(page, '#sim-essay', 'Human-centered learning should remain central because judgment outlasts any temporary platform.');
-    await page.locator('#sim-stage-prewrite.active button[data-editor-command="underline"]').click();
-    await setEditorSelection(page, '#sim-essay', 'Human-centered');
+    await page.locator('#sim-stage-prewrite.active button[data-highlight-color="underline"]').click();
+    await expect(page.locator('#sim-stage-prewrite.active button[data-highlight-color="underline"]')).toHaveClass(/active/);
+    await setPromptTextSelection(page, '#sim-question-pane', 'a');
+    await expect(page.locator('#sim-question-pane mark.lawhub-highlight-underline')).toHaveCount(1);
+    await expect(page.locator('#sim-question-pane mark.lawhub-highlight-underline')).toHaveText('a');
+
+    await expect(page.locator('#sim-question-pane')).not.toContainText('@@SIMHL');
+    const promptText = await page.locator('#sim-question-pane').evaluate((node) => node.innerText);
+    expect(promptText).not.toMatch(/[\u200B-\u200D\uFEFF]/);
 
     await page.locator('#sim-start-writing').click();
-    await expect(page.locator('#sim-essay-mirror')).toContainText('Human-centered learning should remain central');
+    await enterEssayText(page, '#sim-essay-mirror', 'Human-centered learning should remain central because judgment outlasts any temporary platform.');
+
+    await page.locator('#sim-stage-writing.active button[data-editor-command="underline"]').click();
+    await expect(page.locator('#sim-stage-writing.active button[data-editor-command="underline"]')).toHaveClass(/active/);
+    await setEditorSelection(page, '#sim-essay-mirror', 'Human-centered');
+    await expect(page.locator('#sim-stage-writing.active button[data-editor-command="underline"]')).toHaveClass(/active/);
+    await setEditorSelection(page, '#sim-essay-mirror', 'judgment');
 
     await setEditorSelection(page, '#sim-essay-mirror', 'remain');
     await page.locator('#sim-stage-writing.active button[data-editor-command="bold"]').click();
@@ -126,10 +145,19 @@ test.describe('Interactive practice smoke', () => {
 
     const writingHtml = await page.locator('#sim-essay-mirror').evaluate((node) => node.innerHTML);
     const prewriteHtml = await page.locator('#sim-essay').evaluate((node) => node.innerHTML);
+    const writingText = await page.locator('#sim-essay-mirror').evaluate((node) => node.textContent);
+    const prewriteText = await page.locator('#sim-essay').evaluate((node) => node.textContent);
 
     expect(writingHtml).not.toEqual('');
-    expect(prewriteHtml).toEqual(writingHtml);
+    expect(prewriteText).toEqual(writingText);
+    if (browserName !== 'webkit') {
+      expect(prewriteHtml).toEqual(writingHtml);
+    } else {
+      expect(prewriteHtml.toLowerCase()).toMatch(/underline|<u|font-weight|<b|<strong|font-style|<i/);
+    }
     expect(writingHtml.toLowerCase()).toMatch(/underline|<u|font-weight|<b|<strong|font-style|<i/);
+    expect((writingHtml.toLowerCase().match(/underline|<u|text-decoration/g) || []).length).toBeGreaterThan(0);
+    expect(writingHtml).not.toMatch(/[\u200B-\u200D\uFEFF]/);
 
     if (browserName === 'webkit') {
       await expect(page.locator('#sim-essay-mirror')).toContainText('temporary platform');
@@ -141,8 +169,6 @@ test.describe('Interactive practice smoke', () => {
 
     await page.locator('#sim-begin-section').click();
     await page.locator('#sim-prompt-select').selectOption('career-prep');
-    await page.locator('#sim-scratch-toggle').click({ force: true });
-    await expect(page.locator('#sim-scratch-shell')).toHaveClass(/open/);
     await page.locator('#sim-scratchpad').fill('Career-prep scratch notes');
     await page.locator('#sim-drill-memory').fill('Career drill memory');
     await enterEssayText(page, '#sim-essay', 'Career essay paragraph one.');
@@ -160,11 +186,19 @@ test.describe('Interactive practice smoke', () => {
     await expect(page.locator('input[data-sim-check="mechanism"]')).toBeChecked();
     await expect(page.locator('#sim-essay')).toContainText('Career essay paragraph one.');
 
+    await page.locator('#sim-start-writing').click();
+    await expect(page.locator('#sim-scratch-shell')).not.toHaveClass(/open/);
+    await page.locator('#sim-scratch-toggle').click({ force: true });
+    await expect(page.locator('#sim-scratch-shell')).toHaveClass(/open/);
+    await expect(page.locator('#sim-scratchpad-mirror')).toHaveValue('Career-prep scratch notes');
+
     await page.reload();
     await expect(page.locator('#sim-prompt-select')).toHaveValue('career-prep');
-    await expect(page.locator('#sim-scratchpad')).toHaveValue('Career-prep scratch notes');
+    await expect(page.locator('#sim-scratchpad-mirror')).toHaveValue('Career-prep scratch notes');
     await expect(page.locator('#sim-drill-memory')).toHaveValue('Career drill memory');
 
+    await page.locator('#sim-reset-prompt').click();
+    await page.locator('#sim-begin-section').click();
     await page.locator('#sim-prompt-select').selectOption('social-media-free-expression');
     await expect(page.locator('#sim-scratchpad')).toHaveValue('Speech scratch notes');
     await expect(page.locator('#sim-essay')).toContainText('Speech essay paragraph one.');

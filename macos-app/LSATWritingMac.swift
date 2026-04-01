@@ -5,6 +5,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
   private let appTitle = "Kerri — LSAT Argumentative Writing Course"
   private let appDisplayName = "Kerri LSAT Writing"
   private var windows: [NSWindow] = []
+  private var cachedLocalReferenceMap: [String: String]?
 
   func applicationDidFinishLaunching(_ notification: Notification) {
     buildMenus()
@@ -98,9 +99,79 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     return ["http", "https", "mailto"].contains(scheme)
   }
 
-  func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-    if let url = navigationAction.request.url, isExternalURL(url) {
+  private func shouldOpenLocalAssetExternally(_ url: URL) -> Bool {
+    guard url.isFileURL else {
+      return false
+    }
+    let ext = url.pathExtension.lowercased()
+    return ["docx", "ppt", "pptx", "md", "json"].contains(ext)
+  }
+
+  private func localReferenceMap() -> [String: String] {
+    if let cachedLocalReferenceMap {
+      return cachedLocalReferenceMap
+    }
+    let manifestURL = resourceRootURL()
+      .appendingPathComponent("output", isDirectory: true)
+      .appendingPathComponent("local_reference_library.json")
+    guard
+      let data = try? Data(contentsOf: manifestURL),
+      let payload = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+      let documents = payload["documents"] as? [[String: Any]]
+    else {
+      cachedLocalReferenceMap = [:]
+      return [:]
+    }
+    let mapping = documents.reduce(into: [String: String]()) { partial, item in
+      guard let id = item["id"] as? String, let path = item["path"] as? String else {
+        return
+      }
+      partial[id] = path
+    }
+    cachedLocalReferenceMap = mapping
+    return mapping
+  }
+
+  private func openReferenceDocument(docId: String) -> Bool {
+    guard let path = localReferenceMap()[docId] else {
+      NSSound.beep()
+      return false
+    }
+    let url = URL(fileURLWithPath: path)
+    guard FileManager.default.fileExists(atPath: url.path) else {
+      NSSound.beep()
+      return false
+    }
+    NSWorkspace.shared.open(url)
+    return true
+  }
+
+  private func maybeHandleSpecialNavigation(_ url: URL) -> Bool {
+    if isExternalURL(url) {
       NSWorkspace.shared.open(url)
+      return true
+    }
+
+    if url.scheme?.lowercased() == "lsatref" {
+      let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+      let docId = components?.queryItems?.first(where: { $0.name == "docId" })?.value
+      if let docId, !docId.isEmpty {
+        return openReferenceDocument(docId: docId)
+      }
+      NSSound.beep()
+      return true
+    }
+
+    if shouldOpenLocalAssetExternally(url) {
+      NSWorkspace.shared.open(url)
+      return true
+    }
+
+    return false
+  }
+
+  func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    if let url = navigationAction.request.url, maybeHandleSpecialNavigation(url) {
       decisionHandler(.cancel)
       return
     }
@@ -112,8 +183,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
       return nil
     }
 
-    if isExternalURL(url) {
-      NSWorkspace.shared.open(url)
+    if maybeHandleSpecialNavigation(url) {
       return nil
     }
 

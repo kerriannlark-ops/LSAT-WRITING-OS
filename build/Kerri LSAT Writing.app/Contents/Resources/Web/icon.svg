@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Kerri LSAT Writing App Icon</title>
+  <desc id="desc">Navy rounded-square icon with a cream writing page and a gold fountain-pen nib.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16324f"/>
+      <stop offset="55%" stop-color="#274c73"/>
+      <stop offset="100%" stop-color="#3f6796"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0b1828" flood-opacity="0.28"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#1a2536" flood-opacity="0.22"/>
+    </filter>
+    <linearGradient id="paperFold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1e9dd"/>
+      <stop offset="100%" stop-color="#ded4c3"/>
+    </linearGradient>
+    <linearGradient id="nib" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3cc7a"/>
+      <stop offset="100%" stop-color="#c9973f"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="52" y="52" width="920" height="920" rx="220" fill="url(#bg)"/>
+
+  <g opacity="0.17">
+    <circle cx="236" cy="202" r="16" fill="#dce9f7"/>
+    <circle cx="292" cy="202" r="16" fill="#dce9f7"/>
+    <circle cx="264" cy="174" r="16" fill="#dce9f7"/>
+    <circle cx="264" cy="230" r="16" fill="#dce9f7"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="232" y="162" width="560" height="692" rx="84" fill="#fbf7ef" stroke="#dfd3c2" stroke-width="8"/>
+    <path d="M670 162h122v122H670z" fill="url(#paperFold)"/>
+    <path d="M670 162l122 122H670z" fill="#e8dfd0"/>
+  </g>
+
+  <rect x="292" y="244" width="164" height="52" rx="24" fill="#7f4b67"/>
+  <rect x="292" y="340" width="436" height="26" rx="13" fill="#b6c6d8"/>
+  <rect x="292" y="404" width="382" height="26" rx="13" fill="#c2cfdd"/>
+  <rect x="292" y="468" width="402" height="26" rx="13" fill="#c2cfdd"/>
+  <rect x="292" y="532" width="348" height="26" rx="13" fill="#c2cfdd"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M640 588 794 742 668 868 514 714z" fill="#213243" opacity="0.15"/>
+  </g>
+  <g transform="translate(0 4)">
+    <path d="M626 562 788 724 668 844 506 682z" fill="url(#nib)" stroke="#a67d36" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M626 562 706 642 582 766 506 682z" fill="#f7dfaa" opacity="0.92"/>
+    <path d="M668 844 642 752 718 676 810 702z" fill="#d5a452"/>
+    <circle cx="648" cy="694" r="24" fill="#f7efdc" stroke="#a67d36" stroke-width="8"/>
+    <path d="M648 642v154" stroke="#855529" stroke-width="10" stroke-linecap="round"/>
+    <path d="M626 562 788 724" stroke="#f7ebc6" stroke-width="10" opacity="0.72"/>
+  </g>
+</svg>

@@ -10,6 +10,9 @@ test.describe('Learning module smoke', () => {
     await expect(page.locator('#curriculum-next-lesson')).toBeVisible();
     await expect(page.locator('.curriculum-day-card')).toHaveCount(3);
     await expect(page.locator('#curriculum-quickstart-row')).toBeVisible();
+    await expect(page.locator('#curriculum-study-library-panel')).toBeVisible();
+    await expect(page.locator('#curriculum-resource-grid .curriculum-resource-card')).toHaveCount(4);
+    await expect(page.locator('#curriculum-study-paths .curriculum-path-card')).toHaveCount(5);
 
     await page.locator('[data-open-day="day1"]').click();
     await expect(page.locator('#mechanism.tab-panel.active')).toBeVisible();

@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "generated_on": "2026-03-31",
+    "description": "Maps curriculum modules to recommended resources."
+  },
+  "module_resource_map": {
+    "module-0": [
+      "curriculum-overview",
+      "companion-guide",
+      "module-docx",
+      "module-pptx"
+    ],
+    "module-1": [
+      "companion-guide",
+      "companion-deck",
+      "study-guide-source",
+      "writing-notes-source"
+    ],
+    "module-2": [
+      "companion-guide",
+      "module-pptx",
+      "document6-source"
+    ],
+    "module-3": [
+      "companion-guide",
+      "companion-deck",
+      "argumentative-notes",
+      "module-docx"
+    ],
+    "module-4": [
+      "companion-guide",
+      "argumentative-notes",
+      "document6-source"
+    ],
+    "module-5": [
+      "companion-guide",
+      "companion-deck",
+      "writing-notes-source",
+      "practice-essay-source"
+    ],
+    "module-6": [
+      "companion-guide",
+      "writing-notes-source",
+      "document2-source"
+    ],
+    "module-7": [
+      "companion-guide",
+      "practice-essay-source",
+      "module-pptx"
+    ],
+    "module-8": [
+      "companion-guide",
+      "study-guide-source",
+      "practice-essay-source"
+    ],
+    "module-9": [
+      "curriculum-overview",
+      "curriculum-model",
+      "study-guide-source",
+      "document2-source"
+    ]
+  }
+}

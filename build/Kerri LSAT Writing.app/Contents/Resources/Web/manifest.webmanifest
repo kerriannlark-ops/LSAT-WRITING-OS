@@ -1,0 +1,17 @@
+{
+  "name": "Kerri — LSAT Argumentative Writing Course",
+  "short_name": "LSAT Course",
+  "description": "An ADHD-friendly LSAT Argumentative Writing course with saved progress, interactive LawHub-style practice, and prompt-specific feedback.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#eef3f7",
+  "theme_color": "#eef3f7",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

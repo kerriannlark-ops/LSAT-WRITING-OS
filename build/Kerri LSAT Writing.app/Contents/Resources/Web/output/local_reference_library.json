@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "generated_on": "2026-03-31",
+    "description": "Private local reference document manifest for the macOS LSAT Writing app."
+  },
+  "documents": [
+    {
+      "id": "module-docx",
+      "path": "/Users/kerriannlark/Desktop/law school admissions package 2026/LSAT_Learning_Module.docx"
+    },
+    {
+      "id": "module-pptx",
+      "path": "/Users/kerriannlark/Desktop/law school admissions package 2026/LSAT_Learning_Module.pptx"
+    },
+    {
+      "id": "argumentative-notes",
+      "path": "/Users/kerriannlark/Library/CloudStorage/OneDrive-KentStateUniversity/argumentative notes from sources.docx"
+    },
+    {
+      "id": "study-guide-source",
+      "path": "/Users/kerriannlark/Library/CloudStorage/OneDrive-KentStateUniversity/LSAT ARGUMENTATIVE WRITING STUDY GUIDE.docx"
+    },
+    {
+      "id": "practice-essay-source",
+      "path": "/Users/kerriannlark/Library/CloudStorage/OneDrive-KentStateUniversity/LSAT Practice Argumentative Essay.docx"
+    },
+    {
+      "id": "writing-notes-source",
+      "path": "/Users/kerriannlark/Library/CloudStorage/OneDrive-KentStateUniversity/LSAT ARGUMENTATIVE WRITING NOTES.docx"
+    },
+    {
+      "id": "document2-source",
+      "path": "/Users/kerriannlark/Library/CloudStorage/OneDrive-KentStateUniversity/Document2.docx"
+    },
+    {
+      "id": "document6-source",
+      "path": "/Users/kerriannlark/Library/CloudStorage/OneDrive-KentStateUniversity/Document (6).docx"
+    }
+  ]
+}

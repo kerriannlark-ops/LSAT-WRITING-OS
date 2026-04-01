@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "generated_on": "2026-03-31",
+    "description": "Maps weakness categories to the strongest lesson/resource pair."
+  },
+  "weakness_resource_map": {
+    "thesis clarity": {
+      "lesson_id": "module-5",
+      "resource_ids": [
+        "companion-guide",
+        "writing-notes-source"
+      ]
+    },
+    "scope control": {
+      "lesson_id": "module-1",
+      "resource_ids": [
+        "companion-deck",
+        "study-guide-source"
+      ]
+    },
+    "perspective integration": {
+      "lesson_id": "module-2",
+      "resource_ids": [
+        "companion-guide",
+        "document6-source"
+      ]
+    },
+    "mechanism depth": {
+      "lesson_id": "module-3",
+      "resource_ids": [
+        "companion-guide",
+        "argumentative-notes",
+        "module-docx"
+      ]
+    },
+    "inference depth": {
+      "lesson_id": "module-4",
+      "resource_ids": [
+        "companion-guide",
+        "document6-source"
+      ]
+    },
+    "counter precision": {
+      "lesson_id": "module-6",
+      "resource_ids": [
+        "companion-guide",
+        "writing-notes-source"
+      ]
+    },
+    "limitation quality": {
+      "lesson_id": "module-6",
+      "resource_ids": [
+        "companion-guide",
+        "document2-source"
+      ]
+    },
+    "comparative judgment": {
+      "lesson_id": "module-8",
+      "resource_ids": [
+        "companion-guide",
+        "practice-essay-source"
+      ]
+    },
+    "paragraph completeness": {
+      "lesson_id": "module-7",
+      "resource_ids": [
+        "companion-guide",
+        "module-pptx"
+      ]
+    },
+    "sentence clarity": {
+      "lesson_id": "module-9",
+      "resource_ids": [
+        "curriculum-overview",
+        "document2-source"
+      ]
+    }
+  }
+}

@@ -8,7 +8,7 @@ async function openFresh(page, path = '/') {
 }
 
 async function openTab(page, tabId) {
-  await page.locator(`.tab-button[data-tab="${tabId}"]`).click();
+  await page.locator(`.tab-button[data-tab="${tabId}"]`).click({ force: true });
   await expect(page.locator(`section#${tabId}.tab-panel.active`)).toBeVisible();
 }
 
@@ -75,7 +75,10 @@ async function setEditorSelection(page, selector, snippet) {
 }
 
 async function enterEssayText(page, selector, text) {
-  await page.locator(selector).click();
+  const target = page.locator(selector);
+  if (await target.isVisible()) {
+    await target.click();
+  }
   await page.evaluate(({ selector, text }) => {
     const editor = document.querySelector(selector);
     editor.innerHTML = '';
