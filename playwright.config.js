@@ -1,7 +1,8 @@
 const { defineConfig, devices } = require('@playwright/test');
 
 const port = process.env.PLAYWRIGHT_PORT || 4173;
-const baseURL = `http://127.0.0.1:${port}`;
+const baseURL = process.env.PLAYWRIGHT_BASE_URL || `http://127.0.0.1:${port}`;
+const useExternalBaseUrl = Boolean(process.env.PLAYWRIGHT_BASE_URL);
 
 module.exports = defineConfig({
   testDir: './tests',
@@ -25,7 +26,7 @@ module.exports = defineConfig({
     video: 'off',
     serviceWorkers: 'block'
   },
-  webServer: {
+  webServer: useExternalBaseUrl ? undefined : {
     command: `python3 -m http.server ${port} --directory .`,
     cwd: __dirname,
     url: baseURL,
